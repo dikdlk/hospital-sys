@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hy.mapper.PatientMapper" >
+<mapper namespace="com.gjj.mapper.PatientMapper" >
 
     <insert id="insertPatient">
         INSERT INTO patient
@@ -64,19 +64,19 @@
         </foreach>
     </delete>
 
-    <select id="findPatientList" resultType="com.hy.pojo.Patient">
+    <select id="findPatientList" resultType="com.gjj.pojo.Patient">
         SELECT * FROM patient
     </select>
 
-    <select id="findPatientById" resultType="com.hy.pojo.Patient">
+    <select id="findPatientById" resultType="com.gjj.pojo.Patient">
         SELECT * FROM patient WHERE id = #{id}
     </select>
 
-    <select id="findPatientByHospitalId" resultType="com.hy.pojo.Patient">
+    <select id="findPatientByHospitalId" resultType="com.gjj.pojo.Patient">
         SELECT * FROM patient WHERE hospital_id = #{hospitalId}
     </select>
 
-    <select id="findPatientByLike" resultType="com.hy.pojo.Patient">
+    <select id="findPatientByLike" resultType="com.gjj.pojo.Patient">
         SELECT * FROM patient
         <where>
             <if test="patientName != null and patientName != ''">

@@ -1,6 +1,6 @@
-package com.hy.service;
+package com.gjj.service;
 
-import com.hy.mapper.StaMapper;
+import com.gjj.mapper.StaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

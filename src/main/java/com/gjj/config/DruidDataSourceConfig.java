@@ -1,4 +1,4 @@
-package com.hy.config;
+package com.gjj.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

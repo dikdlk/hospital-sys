@@ -1,4 +1,4 @@
-package com.hy.pojo;
+package com.gjj.pojo;
 
 /**
  * @author zh

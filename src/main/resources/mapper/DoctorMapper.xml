@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hy.mapper.DoctorMapper" >
+<mapper namespace="com.gjj.mapper.DoctorMapper" >
 
     <insert id="insertDoctor">
         INSERT INTO doctor
@@ -54,7 +54,7 @@
         </foreach>
     </delete>
 
-    <resultMap id="DoctorResultMap" type="com.hy.pojo.Doctor">
+    <resultMap id="DoctorResultMap" type="com.gjj.pojo.Doctor">
         <id property="id" column="id"/>
         <result property="hospitalId" column="hospital_id"/>
         <result property="doctorName" column="doctor_name"/>

@@ -1,9 +1,9 @@
-package com.hy.controller;
+package com.gjj.controller;
 
 
-import com.hy.pojo.Doctor;
-import com.hy.pojo.Result;
-import com.hy.service.DoctorService;
+import com.gjj.pojo.Doctor;
+import com.gjj.pojo.Result;
+import com.gjj.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

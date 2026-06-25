@@ -1,18 +1,14 @@
-package com.hy.service;
+package com.gjj.service;
 
-import com.hy.mapper.DoctorMapper;
-import com.hy.mapper.PatientMapper;
-import com.hy.mapper.RegistrationMapper;
-import com.hy.pojo.Doctor;
-import com.hy.pojo.Patient;
-import com.hy.pojo.Registration;
+import com.gjj.mapper.DoctorMapper;
+import com.gjj.mapper.PatientMapper;
+import com.gjj.mapper.RegistrationMapper;
+import com.gjj.pojo.Doctor;
+import com.gjj.pojo.Patient;
+import com.gjj.pojo.Registration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -34,7 +30,9 @@ registration.setHospitalId(doctor.getHospitalId());
 registration.setDepartment(doctor.getDepartment());
 registration.setStatus("已挂号");
 registration.setRegistrationDate(new Date());
+doctor.setNumCount(doctor.getNumCount()+1);
       registrationMapper.insertRegistration(registration);
+      doctorMapper.updateDoctor(doctor);
 return true;
 }
 public List<Registration> findAll(){

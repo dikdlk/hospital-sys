@@ -1,10 +1,10 @@
-package com.hy.controller;
+package com.gjj.controller;
 
-import com.hy.pojo.padoId;
-import com.hy.pojo.Registration;
-import com.hy.service.RegistrationService;
+import com.gjj.pojo.padoId;
+import com.gjj.pojo.Registration;
+import com.gjj.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.hy.pojo.Result;
+import com.gjj.pojo.Result;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

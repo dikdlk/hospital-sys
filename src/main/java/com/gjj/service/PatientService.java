@@ -1,9 +1,7 @@
-package com.hy.service;
+package com.gjj.service;
 
-import com.hy.mapper.PatientMapper;
-import com.hy.pojo.Hospital;
-import com.hy.pojo.Patient;
-import org.apache.ibatis.annotations.Param;
+import com.gjj.mapper.PatientMapper;
+import com.gjj.pojo.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

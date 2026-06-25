@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hy.mapper.HospitalMapper" >
+<mapper namespace="com.gjj.mapper.HospitalMapper" >
     <insert id="insertHos">
         INSERT INTO hospital
             (hospital_name,hospital_type,hospital_level,hospital_code,hospital_address,hospital_status)
@@ -47,13 +47,13 @@
         </foreach>
     </delete>
 
-    <select id="findHosList" resultType="com.hy.pojo.Hospital">
+    <select id="findHosList" resultType="com.gjj.pojo.Hospital">
         SELECT * FROM hospital
     </select>
-    <select id="selectHosByName" resultType="com.hy.pojo.Hospital">
+    <select id="selectHosByName" resultType="com.gjj.pojo.Hospital">
         SELECT * FROM hospital WHERE hospital_name = #{hosName}
     </select>
-    <select id="findHosByLikeName" resultType="com.hy.pojo.Hospital">
+    <select id="findHosByLikeName" resultType="com.gjj.pojo.Hospital">
         SELECT * FROM hospital
         <where>
             <if test="hosName!=null and hosName!=''">

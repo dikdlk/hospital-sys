@@ -1,6 +1,6 @@
-package com.hy.mapper;
+package com.gjj.mapper;
 
-import com.hy.pojo.Patient;
+import com.gjj.pojo.Patient;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

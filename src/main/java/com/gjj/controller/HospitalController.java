@@ -1,14 +1,10 @@
-package com.hy.controller;
+package com.gjj.controller;
 
 
-import com.hy.pojo.Hospital;
-import com.hy.pojo.Registration;
-import com.hy.pojo.Result;
-import com.hy.service.HospitalService;
-import org.apache.coyote.Request;
-import org.apache.ibatis.annotations.Delete;
+import com.gjj.pojo.Hospital;
+import com.gjj.pojo.Result;
+import com.gjj.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

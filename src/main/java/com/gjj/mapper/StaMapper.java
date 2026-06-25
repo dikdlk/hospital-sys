@@ -1,4 +1,4 @@
-package com.hy.mapper;
+package com.gjj.mapper;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
-package com.hy.service;
+package com.gjj.service;
 
-import com.hy.mapper.HospitalMapper;
-import com.hy.pojo.Hospital;
+import com.gjj.mapper.HospitalMapper;
+import com.gjj.pojo.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.hy.controller;
+package com.gjj.controller;
 
-import com.hy.pojo.Result;
-import com.hy.service.StaService;
+import com.gjj.pojo.Result;
+import com.gjj.service.StaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

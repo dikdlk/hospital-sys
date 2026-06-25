@@ -1,6 +1,6 @@
-package com.hy.mapper;
+package com.gjj.mapper;
 
-import com.hy.pojo.Registration;
+import com.gjj.pojo.Registration;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
