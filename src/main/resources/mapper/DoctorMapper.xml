@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.mapper.DoctorMapper" >
+
+    <insert id="insertDoctor">
+        INSERT INTO doctor
+            (hospital_id, doctor_name, doctor_title, department, doctor_code, phone, status, num_count)
+            VALUES
+            (#{doctor.hospitalId}, #{doctor.doctorName}, #{doctor.doctorTitle},
+             #{doctor.department}, #{doctor.doctorCode}, #{doctor.phone}, #{doctor.status}, #{doctor.numCount})
+    </insert>
+
+    <update id="updateDoctor">
+        UPDATE doctor
+        <set>
+            <if test="doctor.hospitalId != null">
+                hospital_id=#{doctor.hospitalId},
+            </if>
+            <if test="doctor.doctorName != null and doctor.doctorName != ''">
+                doctor_name=#{doctor.doctorName},
+            </if>
+            <if test="doctor.doctorTitle != null">
+                doctor_title=#{doctor.doctorTitle},
+            </if>
+            <if test="doctor.department != null and doctor.department != ''">
+                department=#{doctor.department},
+            </if>
+            <if test="doctor.doctorCode != null">
+                doctor_code=#{doctor.doctorCode},
+            </if>
+            <if test="doctor.phone != null">
+                phone=#{doctor.phone},
+            </if>
+            <if test="doctor.status != null and doctor.status != ''">
+                status=#{doctor.status},
+            </if>
+            <if test="doctor.numCount != null">
+                num_count=#{doctor.numCount}
+            </if>
+        </set>
+        <where>
+            id = #{doctor.id}
+        </where>
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM doctor WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByIds">
+        DELETE FROM doctor WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <resultMap id="DoctorResultMap" type="com.hy.pojo.Doctor">
+        <id property="id" column="id"/>
+        <result property="hospitalId" column="hospital_id"/>
+        <result property="doctorName" column="doctor_name"/>
+        <result property="doctorTitle" column="doctor_title"/>
+        <result property="department" column="department"/>
+        <result property="doctorCode" column="doctor_code"/>
+        <result property="phone" column="phone"/>
+        <result property="status" column="status"/>
+        <result property="numCount" column="num_count"/>
+    </resultMap>
+
+    <select id="findDoctorList" resultMap="DoctorResultMap">
+        SELECT * FROM doctor
+    </select>
+
+    <select id="findDoctorById" resultMap="DoctorResultMap">
+        SELECT * FROM doctor WHERE id = #{id}
+    </select>
+
+    <select id="findDoctorByLike" resultMap="DoctorResultMap">
+        SELECT * FROM doctor
+        <where>
+            <if test="doctorName != null and doctorName != ''">
+                AND doctor_name LIKE CONCAT('%', #{doctorName}, '%')
+            </if>
+            <if test="department != null and department != ''">
+                AND department LIKE CONCAT('%', #{department}, '%')
+            </if>
+            <if test="doctorTitle != null and doctorTitle != ''">
+                AND doctor_title = #{doctorTitle}
+            </if>
+        </where>
+    </select>
+</mapper>

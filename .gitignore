@@ -1,0 +1,31 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# 编译文件
+target/
+*.class
+*.jar
+*.war
+
+# Maven（保留 Wrapper，方便他人构建，切勿忽略！）
+# .mvn/
+# mvnw
+# mvnw.cmd
+
+# 前端（已移至 frontend/ 子目录）
+webui/node_modules/
+webui/dist/
+webui/.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 环境配置（敏感信息）
+application-local.yml
+application-prod.yml

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.mapper.PatientMapper" >
+
+    <insert id="insertPatient">
+        INSERT INTO patient
+            (patient_name, patient_phone, patient_idcard, patient_gender, 
+             patient_age, patient_birthday, patient_address, patient_blood_type, 
+             patient_allergy, hospital_id)
+            VALUES
+            (#{patient.patientName}, #{patient.patientPhone}, #{patient.patientIdcard}, 
+             #{patient.patientGender}, #{patient.patientAge}, #{patient.patientBirthday}, 
+             #{patient.patientAddress}, #{patient.patientBloodType}, 
+             #{patient.patientAllergy}, #{patient.hospitalId})
+    </insert>
+
+    <update id="updatePatient">
+        UPDATE patient
+        <set>
+            <if test="patient.patientName != null and patient.patientName != ''">
+                patient_name=#{patient.patientName},
+            </if>
+            <if test="patient.patientPhone != null">
+                patient_phone=#{patient.patientPhone},
+            </if>
+            <if test="patient.patientIdcard != null">
+                patient_idcard=#{patient.patientIdcard},
+            </if>
+            <if test="patient.patientGender != null">
+                patient_gender=#{patient.patientGender},
+            </if>
+            <if test="patient.patientAge != null">
+                patient_age=#{patient.patientAge},
+            </if>
+            <if test="patient.patientBirthday != null">
+                patient_birthday=#{patient.patientBirthday},
+            </if>
+            <if test="patient.patientAddress != null">
+                patient_address=#{patient.patientAddress},
+            </if>
+            <if test="patient.patientBloodType != null">
+                patient_blood_type=#{patient.patientBloodType},
+            </if>
+            <if test="patient.patientAllergy != null">
+                patient_allergy=#{patient.patientAllergy},
+            </if>
+            <if test="patient.hospitalId != null">
+                hospital_id=#{patient.hospitalId}
+            </if>
+        </set>
+        <where>
+            id = #{patient.id}
+        </where>
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM patient WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByIds">
+        DELETE FROM patient WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="findPatientList" resultType="com.hy.pojo.Patient">
+        SELECT * FROM patient
+    </select>
+
+    <select id="findPatientById" resultType="com.hy.pojo.Patient">
+        SELECT * FROM patient WHERE id = #{id}
+    </select>
+
+    <select id="findPatientByHospitalId" resultType="com.hy.pojo.Patient">
+        SELECT * FROM patient WHERE hospital_id = #{hospitalId}
+    </select>
+
+    <select id="findPatientByLike" resultType="com.hy.pojo.Patient">
+        SELECT * FROM patient
+        <where>
+            <if test="patientName != null and patientName != ''">
+                AND patient_name LIKE CONCAT('%', #{patientName}, '%')
+            </if>
+            <if test="patientPhone != null and patientPhone != ''">
+                AND patient_phone LIKE CONCAT('%', #{patientPhone}, '%')
+            </if>
+            <if test="patientIdcard != null and patientIdcard != ''">
+                AND patient_idcard LIKE CONCAT('%', #{patientIdcard}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hy.mapper.StaMapper" >
+
+    <select id="getHosCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM hospital
+    </select>
+    <select id="getPatCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM patient
+    </select>
+    <select id="getPatAge" resultType="java.util.Map">
+        SELECT SUM(CASE WHEN patient_age between 0 and 19 then 1 else 0 end) A,
+               SUM(CASE WHEN patient_age between 20 and 29 then 1 else 0 end) B,
+               SUM(CASE WHEN patient_age between 30 and 39 then 1 else 0 end) C,
+               SUM(CASE WHEN patient_age between 40 and 49 then 1 else 0 end) D
+        from patient
+    </select>
+    <select id="getHosPatCount" resultType="java.util.Map">
+        select h.hospital_name,count(p.id) as count from hospital h LEFT JOIN patient p on h.id = p.hospital_id GROUP BY h.hospital_name    </select>
+</mapper>
