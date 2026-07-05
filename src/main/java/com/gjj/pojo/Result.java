@@ -20,13 +20,32 @@ public class Result {
         this.data = data;
     }
 
-    public Result(int i, String 插入, Hospital hospital) {
+    /**
+     * 成功响应（code=200）
+     */
+    public static Result success(String message, Object data) {
+        return new Result("200", message, data);
     }
 
-    public Result(int i, String 插入) {
+    /**
+     * 成功响应（code=200），无数据
+     */
+    public static Result success(String message) {
+        return new Result("200", message, null);
     }
 
-    public Result(String code, String 插入) {
+    /**
+     * 失败响应（code=400），请求参数有误
+     */
+    public static Result error(String message) {
+        return new Result("400", message, null);
+    }
+
+    /**
+     * 失败响应（code=400），请求参数有误，带数据
+     */
+    public static Result error(String message, Object data) {
+        return new Result("400", message, data);
     }
 
     public String getCode() {
